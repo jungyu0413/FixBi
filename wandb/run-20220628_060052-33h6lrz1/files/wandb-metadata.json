@@ -1,0 +1,24 @@
+{
+    "os": "Linux-5.4.0-120-generic-x86_64-with-Ubuntu-18.04-bionic",
+    "python": "3.6.9",
+    "heartbeatAt": "2022-06-28T06:00:53.458183",
+    "startedAt": "2022-06-28T06:00:52.530550",
+    "docker": null,
+    "gpu": "NVIDIA RTX A5000",
+    "gpu_count": 1,
+    "cpu_count": 24,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "main.py",
+    "codePath": "main.py",
+    "git": {
+        "remote": "https://github.com/NaJaeMin92/FixBi.git",
+        "commit": "fdf370d803ac2d5293035104b76642c812ac00a7"
+    },
+    "email": null,
+    "root": "/workspace/FixBi",
+    "host": "ff5bb46aff93",
+    "username": "root",
+    "executable": "/usr/local/bin/python"
+}

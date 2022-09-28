@@ -1,0 +1,28 @@
+Use GPU(s): 0 for training
+Namespace(baseline_path='AD_Baseline', batch_size=32, bim_start=100, cr_start=100, db_path='database', epochs=100, gpu='0', lam_sd=0.7, lam_td=0.3, save_path='Logs/save_test', source='amazon', sp_start=100, target='dslr', th=2.0, workers=4)
+amazon train set size: 2817
+amazon test set size: 2817
+dslr train set size: 498
+dslr test set size: 498
+Load pre-trained baseline model !
+Load pre-trained baseline model !
+Epoch: [0/100]
+Fixed MixUp Loss (SDM): 3.4740
+Fixed MixUp Loss (TDM): 3.1598
+Train time: 4.61
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/multiprocessing/queues.py", line 240, in _feed
+    send_bytes(obj)
+  File "/usr/lib/python3.6/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+Accuracy: 5.22%
+Eval time: 2.23
+Accuracy: 1.61%
+Eval time: 2.18
+Final Accuracy: 3.82%
+Traceback (most recent call last):
+  File "main.py", line 150, in <module>
+    main(args)
+  File "main.py", line 144, in main
+    "Train Loss": round(losses, 4)
+TypeError: type list doesn't define __round__ method

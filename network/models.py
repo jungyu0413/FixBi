@@ -3,13 +3,24 @@ import torch.nn as nn
 import torch.utils.model_zoo as model_zoo
 import math
 
+
+
+
+###################### Model #################################
+###############                            ###################
+##############################################################
+
+###############################################################
+
 __all__ = ['ResNet', 'resnet50']
 
 model_urls = {
     'resnet50': 'https://download.pytorch.org/models/resnet50-19c8e357.pth'
 }
 
-
+###################### ResNet50 ##############################
+###############                            ###################
+##############################################################
 def conv3x3(in_planes, out_planes, stride=1):
     """3x3 convolution with padding"""
     return nn.Conv2d(in_planes, out_planes, kernel_size=3, stride=stride,
@@ -154,14 +165,25 @@ class ResNet50(nn.Module):
 
     def __init__(self):
         super(ResNet50, self).__init__()
-        self.encoder = resnet50(False)
-        self.encoder.load_state_dict(torch.load('/mnt2/disk2/JMDA/network/resnet50-19c8e357.pth'))
-
+        self.encoder = resnet50(True)
+  #      self.encoder.load_state_dict(torch.load('/mnt2/disk2/JMDA/network/resnet50-19c8e357.pth'))
+  # 아래에서 False를 True로 변경하였기에 주석처리
     def forward(self, x):
         x = self.encoder(x)
         return x
 
+        
+def resnet50(pretrained=False, **kwargs): # False→True
+    model = ResNet(Bottleneck, [3, 4, 6, 3], **kwargs)
+    if pretrained:
+        model.load_state_dict(model_zoo.load_url(model_urls['resnet50']))
+    return model
 
+
+
+###################### Head #################################
+###############                            ##################
+#############################################################
 class Head(nn.Module):
     def __init__(self):
         super(Head, self).__init__()
@@ -176,8 +198,4 @@ class Head(nn.Module):
         return x
 
 
-def resnet50(pretrained=False, **kwargs):
-    model = ResNet(Bottleneck, [3, 4, 6, 3], **kwargs)
-    if pretrained:
-        model.load_state_dict(model_zoo.load_url(model_urls['resnet50']))
-    return model
+

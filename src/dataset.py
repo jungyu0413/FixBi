@@ -2,7 +2,7 @@ from torchvision import datasets
 import torchvision.transforms as transforms
 
 
-def get_dataset(dataset_name, path='/database'):
+def get_dataset(dataset_name, path='database'):
     if dataset_name in ['amazon', 'dslr', 'webcam']:  # OFFICE-31
         data_transforms = {
             'train': transforms.Compose([
@@ -21,7 +21,9 @@ def get_dataset(dataset_name, path='/database'):
         }
 
         tr_dataset = datasets.ImageFolder(path + '/office31/' + dataset_name + '/', data_transforms['train'])
+        # amazon, dslr, webcam data : train-transforms
         te_dataset = datasets.ImageFolder(path + '/office31/' + dataset_name + '/', data_transforms['test'])
+        # amazon, dslr, webcam data : test-transforms
         print('{} train set size: {}'.format(dataset_name, len(tr_dataset)))
         print('{} test set size: {}'.format(dataset_name, len(te_dataset)))
 
